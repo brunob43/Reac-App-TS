@@ -1,5 +1,15 @@
 import {useEffect, useState} from 'react';
 import './App.css';
+interface Sub {
+  nick: string
+  avatar: string
+  subMonths: number
+  description?: string
+}
+
+interface AppState {
+  subs: Array<Sub>
+}
 
 const INITIAL_STATE = [
   {
@@ -15,15 +25,9 @@ const INITIAL_STATE = [
   }
 ]
 
-interface Sub {
-  nick: string
-  avatar: string
-  subMonths: number
-  description?: string
-}
 
 function App() {
-  const [subs, setSubs] = useState<Array<Sub>>([])
+  const [subs, setSubs] = useState<AppState["subs"]>([])
 
   useEffect(() => {
     setSubs(INITIAL_STATE)
@@ -31,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-    <h1>Midu Subs</h1>
+    <h1>Brunox Subs</h1>
     <ul>
       {
         subs.map(sub => {
